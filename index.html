@@ -101,6 +101,7 @@
   <div class="output">loopVisualizer  hydindata  openSourceContributions</div>
   <button id="aboutBtn">cat about.txt</button>
   <button id="contactBtn">cat contact.txt</button>
+  <button id="portfolioBtn">cat portfolio.txt</button>
   <pre class="output hidden" id="aboutText">
 Hi, I'm Ram. I'm a developer passionate about infinite loops of learning and coding.
   </pre>
@@ -108,9 +109,8 @@ Hi, I'm Ram. I'm a developer passionate about infinite loops of learning and cod
 Email: ram@example.com
 GitHub: github.com/raminfinite
   </pre>
-  <button onclick="revealFullPortfolio()">Reveal Full Portfolio</button>
 </div>
-<div id="fullPortfolio" class="section" style="display: none;">
+<pre class="output hidden" id="portfolioText">
   <div class="command-line">$ whoami</div>
   <div class="output">
 ram.dwarkanath — systems.architect
@@ -165,7 +165,7 @@ Other: E*TRADE APIs, frontend PoCs, ML pipelines
 "I write tools that solve, not just impress."
 Run ‘connect --human’ to start a real conversation.
   </div>
-</div>
+</pre>
 </div>
 <script>
   const aboutBtn = document.getElementById('aboutBtn');
@@ -183,9 +183,14 @@ Run ‘connect --human’ to start a real conversation.
     aboutText.classList.add('hidden');
   });
 
-  function revealFullPortfolio() {
-    document.getElementById('fullPortfolio').style.display = 'block';
-  }
+  const portfolioBtn = document.getElementById('portfolioBtn');
+  const portfolioText = document.getElementById('portfolioText');
+
+  portfolioBtn.addEventListener('click', () => {
+    portfolioText.classList.toggle('hidden');
+    aboutText.classList.add('hidden');
+    contactText.classList.add('hidden');
+  });
 </script>
 </body>
 </html>
