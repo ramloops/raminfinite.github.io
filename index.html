@@ -12,11 +12,19 @@
     font-family: 'JetBrains Mono', monospace;
     margin: 0;
     padding: 2rem;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    align-items: flex-start;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
   }
   header {
     font-size: 1.5rem;
@@ -84,6 +92,7 @@
 </style>
 </head>
 <body>
+<div class="container">
 <header>Raminfinite's Terminal Portfolio</header>
 <div class="terminal" id="terminal">
   <div class="command-line">$ cd portfolio</div>
@@ -156,6 +165,7 @@ Other: E*TRADE APIs, frontend PoCs, ML pipelines
 "I write tools that solve, not just impress."
 Run ‘connect --human’ to start a real conversation.
   </div>
+</div>
 </div>
 <script>
   const aboutBtn = document.getElementById('aboutBtn');
