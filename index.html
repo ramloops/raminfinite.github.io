@@ -176,12 +176,14 @@ Run ‘connect --human’ to start a real conversation.
     aboutText.classList.toggle('hidden');
     contactText.classList.add('hidden');
     portfolioText.classList.add('hidden');
+    hideAllProjectDetails();
   });
 
   contactBtn.addEventListener('click', () => {
     contactText.classList.toggle('hidden');
     aboutText.classList.add('hidden');
     portfolioText.classList.add('hidden');
+    hideAllProjectDetails();
   });
 
   const portfolioBtn = document.getElementById('portfolioBtn');
@@ -191,6 +193,7 @@ Run ‘connect --human’ to start a real conversation.
     portfolioText.classList.toggle('hidden');
     aboutText.classList.add('hidden');
     contactText.classList.add('hidden');
+    hideAllProjectDetails();
   });
 
   const loopVisualizerLink = document.getElementById('loopVisualizerLink');
