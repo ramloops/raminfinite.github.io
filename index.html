@@ -1,52 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ramloops</title>
-  <style>
-    body {
-      background-color: #1e1e1e;
-      color: #d4d4d4;
-      font-family: "Fira Code", monospace;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    h1 {
-      color: #569cd6;
-    }
-    p {
-      color: #9cdcfe;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Raminfinite Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  header {
+    font-size: 1.5rem;
+    color: #58a6ff;
+    margin-bottom: 1rem;
+  }
+  .terminal {
+    background-color: #161b22;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #58a6ff33;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 600px;
+  }
+  .command-line {
+    color: #8b949e;
+  }
+  .output {
+    white-space: pre-wrap;
+    margin-bottom: 1rem;
+  }
+  button {
+    background-color: #238636;
+    border: none;
+    color: #c9d1d9;
+    padding: 0.5rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  button:hover {
+    background-color: #2ea043;
+  }
+  .hidden {
+    display: none;
+  }
+  a {
+    color: #58a6ff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
-  <svg viewBox="0 0 500 400" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="royalBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#1a237e" />
-        <stop offset="50%" stop-color="#3949ab" />
-        <stop offset="100%" stop-color="#2196f3" />
-      </linearGradient>
-    </defs>
-    <rect width="500" height="400" fill="transparent" />
-    <path d="m 169.46447,232.99445 22.89569,-16.58024 22.89569,16.58024"
-          fill="none" stroke="url(#royalBlueGradient)" stroke-width="11.0217" stroke-linejoin="miter" stroke-linecap="square" />
-    <path d="m 169.6863,249.10122 22.89569,-16.58025 22.89568,16.58025"
-          fill="none" stroke="url(#royalBlueGradient)" stroke-width="11.0217" stroke-linejoin="miter" stroke-linecap="square" />
-    <path d="m 172.15151,192.875 v -50 h 50 l 25,25 -25,25"
-          fill="none" stroke="url(#royalBlueGradient)" stroke-width="20" stroke-linejoin="miter" stroke-linecap="square" />
-    <path d="m 222.15151,192.875 50,50"
-          fill="none" stroke="url(#royalBlueGradient)" stroke-width="20" stroke-linejoin="miter" stroke-linecap="square" />
-    <text x="256.90527" y="286.35986" font-family="Arial, sans-serif" font-size="30px"
-          font-weight="bold" text-anchor="middle" fill="#1a237e">RAMINFINITE</text>
-  </svg>
-<h1>Welcome to ramloops</h1>
-<p>Buckled up and ready to go.</p>
-<p><a href="eb2_prediction.html" style="color: #c586c0;">See EB2 Visa Prediction</a></p>
+<header>Raminfinite's Terminal Portfolio</header>
+<div class="terminal" id="terminal">
+  <div class="command-line">$ cd portfolio</div>
+  <div class="output">projects  about.txt  contact.txt</div>
+  <div class="command-line">$ ls projects</div>
+  <div class="output">loopVisualizer  ramloopsWebsite  openSourceContributions</div>
+  <button id="aboutBtn">cat about.txt</button>
+  <button id="contactBtn">cat contact.txt</button>
+  <pre class="output hidden" id="aboutText">
+Hi, I'm Ramin. I'm a developer passionate about infinite loops of learning and coding.
+  </pre>
+  <pre class="output hidden" id="contactText">
+Email: ramin@example.com
+GitHub: github.com/raminfinite
+  </pre>
+</div>
+<script>
+  const aboutBtn = document.getElementById('aboutBtn');
+  const contactBtn = document.getElementById('contactBtn');
+  const aboutText = document.getElementById('aboutText');
+  const contactText = document.getElementById('contactText');
+
+  aboutBtn.addEventListener('click', () => {
+    aboutText.classList.toggle('hidden');
+    contactText.classList.add('hidden');
+  });
+
+  contactBtn.addEventListener('click', () => {
+    contactText.classList.toggle('hidden');
+    aboutText.classList.add('hidden');
+  });
+</script>
 </body>
 </html>
