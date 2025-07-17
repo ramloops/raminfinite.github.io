@@ -98,6 +98,11 @@
   <button id="aboutBtn">cat about.txt</button>
   <button id="contactBtn">cat contact.txt</button>
   <button id="portfolioBtn">cat portfolio.txt</button>
+  <!-- Fake terminal input and output -->
+  <div class="command-line">
+    <span>$</span> <input type="text" id="terminalInput" autocomplete="off" style="background: transparent; border: none; color: #c9d1d9; font-family: 'JetBrains Mono', monospace; font-size: 1rem; width: 90%;" />
+  </div>
+  <pre class="output" id="fakeTerminalOutput"></pre>
   <pre class="output hidden" id="aboutText">
 Hi, I'm Ram. I'm a developer passionate about infinite loops of learning and coding.
   </pre>
@@ -224,6 +229,54 @@ Run ‘connect --human’ to start a real conversation.
     hideAllProjectDetails();
     openSourceText.classList.toggle('hidden');
   });
+</script>
+<script>
+const terminalInput = document.getElementById('terminalInput');
+const fakeTerminalOutput = document.getElementById('fakeTerminalOutput');
+
+const tree = {
+  portfolio: {
+    projects: ['loopVisualizer', 'hydindata', 'openSourceContributions'],
+    'about.txt': 'Hi, I\'m Ram. I\'m a developer passionate about infinite loops of learning and coding.',
+    'contact.txt': 'Email: ram@example.com\nGitHub: github.com/raminfinite'
+  }
+};
+
+let currentDir = 'portfolio';
+
+terminalInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const cmd = terminalInput.value.trim();
+    terminalInput.value = '';
+    let response = `$ ${cmd}\n`;
+
+    if (cmd === 'ls') {
+      const content = Object.keys(tree[currentDir]).join('  ');
+      response += content;
+    } else if (cmd.startsWith('cd')) {
+      const dir = cmd.split(' ')[1];
+      if (tree[dir]) {
+        currentDir = dir;
+        response += '';
+      } else {
+        response += `cd: no such file or directory: ${dir}`;
+      }
+    } else if (cmd.startsWith('cat')) {
+      const file = cmd.split(' ')[1];
+      const content = tree[currentDir][file];
+      if (typeof content === 'string') {
+        response += content;
+      } else {
+        response += `cat: ${file}: Is a directory`;
+      }
+    } else {
+      response += `command not found: ${cmd}`;
+    }
+
+    fakeTerminalOutput.textContent += response + '\n';
+    fakeTerminalOutput.scrollTop = fakeTerminalOutput.scrollHeight;
+  }
+});
 </script>
 </body>
 </html>
