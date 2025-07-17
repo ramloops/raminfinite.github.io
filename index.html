@@ -233,6 +233,22 @@ Run ‘connect --human’ to start a real conversation.
     contactText.classList.add('hidden');
     hideAllProjectDetails();
   });
+
+  const aboutLink = document.getElementById('aboutLink');
+  aboutLink.addEventListener('click', () => {
+    aboutText.classList.toggle('hidden');
+    contactText.classList.add('hidden');
+    portfolioText.classList.add('hidden');
+    hideAllProjectDetails();
+  });
+
+  const contactLink = document.getElementById('contactLink');
+  contactLink.addEventListener('click', () => {
+    contactText.classList.toggle('hidden');
+    aboutText.classList.add('hidden');
+    portfolioText.classList.add('hidden');
+    hideAllProjectDetails();
+  });
 </script>
 </body>
 </html>
