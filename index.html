@@ -214,16 +214,25 @@ Run ‘connect --human’ to start a real conversation.
   loopVisualizerLink.addEventListener('click', () => {
     hideAllProjectDetails();
     loopVisualizerText.classList.toggle('hidden');
+    aboutText.classList.add('hidden');
+    contactText.classList.add('hidden');
+    portfolioText.classList.add('hidden');
   });
 
   hydindataLink.addEventListener('click', () => {
     hideAllProjectDetails();
     hydindataText.classList.toggle('hidden');
+    aboutText.classList.add('hidden');
+    contactText.classList.add('hidden');
+    portfolioText.classList.add('hidden');
   });
 
   openSourceLink.addEventListener('click', () => {
     hideAllProjectDetails();
     openSourceText.classList.toggle('hidden');
+    aboutText.classList.add('hidden');
+    contactText.classList.add('hidden');
+    portfolioText.classList.add('hidden');
   });
   // Handle portfolio.txt clickable in the .output block
   const portfolioLink = document.getElementById('portfolioLink');
