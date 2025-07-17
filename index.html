@@ -70,16 +70,31 @@
   a:hover {
     text-decoration: underline;
   }
+  .clickable, .project-link {
+    cursor: pointer;
+    color: #58a6ff;
+  }
+  .clickable:hover, .project-link:hover {
+    text-decoration: underline;
+  }
 </style>
 </head>
 <body>
 <div class="container">
-<header>Raminfinite's Portfolio</header>
+<header>Ram Dwarkanath's Portfolio</header>
 <div class="terminal" id="terminal">
   <div class="command-line">$ cd portfolio</div>
-  <div class="output">projects  about.txt  contact.txt</div>
+  <div class="output">
+    <span id="projectsLink" class="clickable">projects</span>  
+    <span id="aboutLink" class="clickable">about.txt</span>  
+    <span id="contactLink" class="clickable">contact.txt</span>
+  </div>
   <div class="command-line">$ ls projects</div>
-  <div class="output">loopVisualizer  hydindata  openSourceContributions</div>
+  <div class="output">
+    <span id="loopVisualizerLink" class="project-link">loopVisualizer</span>  
+    <span id="hydindataLink" class="project-link">hydindata</span>  
+    <span id="openSourceLink" class="project-link">openSourceContributions</span>
+  </div>
   <button id="aboutBtn">cat about.txt</button>
   <button id="contactBtn">cat contact.txt</button>
   <button id="portfolioBtn">cat portfolio.txt</button>
@@ -146,6 +161,9 @@ Other: E*TRADE APIs, frontend PoCs, ML pipelines
 Run ‘connect --human’ to start a real conversation.
 </div>
   </pre>
+  <pre class="output hidden" id="loopVisualizerText">🔁 loopVisualizer – A tool for visualizing loops and iterations in real-time (WIP)</pre>
+  <pre class="output hidden" id="hydindataText">📊 hydindata – Tracks water utility metrics and anomalies using open datasets</pre>
+  <pre class="output hidden" id="openSourceText">🌍 openSourceContributions – Pull requests and issues contributed across OSS projects</pre>
 </div>
 </div>
 <script>
@@ -173,6 +191,35 @@ Run ‘connect --human’ to start a real conversation.
     portfolioText.classList.toggle('hidden');
     aboutText.classList.add('hidden');
     contactText.classList.add('hidden');
+  });
+
+  const loopVisualizerLink = document.getElementById('loopVisualizerLink');
+  const hydindataLink = document.getElementById('hydindataLink');
+  const openSourceLink = document.getElementById('openSourceLink');
+
+  const loopVisualizerText = document.getElementById('loopVisualizerText');
+  const hydindataText = document.getElementById('hydindataText');
+  const openSourceText = document.getElementById('openSourceText');
+
+  function hideAllProjectDetails() {
+    loopVisualizerText.classList.add('hidden');
+    hydindataText.classList.add('hidden');
+    openSourceText.classList.add('hidden');
+  }
+
+  loopVisualizerLink.addEventListener('click', () => {
+    hideAllProjectDetails();
+    loopVisualizerText.classList.toggle('hidden');
+  });
+
+  hydindataLink.addEventListener('click', () => {
+    hideAllProjectDetails();
+    hydindataText.classList.toggle('hidden');
+  });
+
+  openSourceLink.addEventListener('click', () => {
+    hideAllProjectDetails();
+    openSourceText.classList.toggle('hidden');
   });
 </script>
 </body>
