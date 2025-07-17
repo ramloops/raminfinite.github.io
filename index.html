@@ -62,6 +62,25 @@
   a:hover {
     text-decoration: underline;
   }
+  #fullPortfolio {
+    background-color: #161b22;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #58a6ff33;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #c9d1d9;
+  }
+  #fullPortfolio .command-line {
+    color: #8b949e;
+    margin-top: 1rem;
+  }
+  #fullPortfolio .output {
+    white-space: pre-wrap;
+    margin-bottom: 1rem;
+  }
 </style>
 </head>
 <body>
@@ -80,6 +99,24 @@ Hi, I'm Ramin. I'm a developer passionate about infinite loops of learning and c
 Email: ramin@example.com
 GitHub: github.com/raminfinite
   </pre>
+  <button onclick="revealFullPortfolio()">Reveal Full Portfolio</button>
+</div>
+<div id="fullPortfolio" class="section" style="display: none;">
+  <div class="command-line">$ cd projects/loopVisualizer</div>
+  <div class="output">
+- A JavaScript tool to visualize and debug infinite loops.
+- Features interactive controls and real-time output.
+  </div>
+  <div class="command-line">$ cd ../ramloopsWebsite</div>
+  <div class="output">
+- Personal website with dynamic loop-themed animations.
+- Built with React and Tailwind CSS.
+  </div>
+  <div class="command-line">$ cd ../openSourceContributions</div>
+  <div class="output">
+- Contributions to various open source projects on GitHub.
+- Focus on improving loop algorithms and performance.
+  </div>
 </div>
 <script>
   const aboutBtn = document.getElementById('aboutBtn');
@@ -96,6 +133,10 @@ GitHub: github.com/raminfinite
     contactText.classList.toggle('hidden');
     aboutText.classList.add('hidden');
   });
+
+  function revealFullPortfolio() {
+    document.getElementById('fullPortfolio').style.display = 'block';
+  }
 </script>
 </body>
 </html>
